@@ -15,11 +15,11 @@ def main():
     cards.pop(0)
     while True:
         choice = input("will you take the card again(choice Y/N)? ")
-        if choice == "Y":
+        if choice == 'Y':
             if count_people > 10 and cards[0] == 11:
                 cards[0] = 1
             count_people += cards[0]
-            print(f"you get a card {cards[0]}, your count is {count_people}")
+            print(f"you got a card {cards[0]}, your count is {count_people}")
             cards.pop(0)
             if count_people > 21:
                 print("you lose")
@@ -27,19 +27,20 @@ def main():
             elif count_people == 21:
                 print("you win!")
                 break
-        elif choice == "N":
+        elif choice == 'N':
             print(f"you have {count_people} points")
             break
         else:
             print("enter Y if your answer is YES, and N if your answer is NO")
 
     if count_people < 21:
+        print(f"dealer has {count_dealer} points")
         while True:
-            if count_dealer < count_people:
+            if count_dealer <= count_people:
                 if count_dealer > 10 and cards[0] == 11:
                     cards[0] = 1
                 count_dealer += cards[0]
-                print(f"the dealer get a card {cards[0]}, his count is {count_dealer}")
+                print(f"the dealer got a card {cards[0]}, his count is {count_dealer}")
                 cards.pop(0)
                 if count_dealer > 21:
                     print("you win!")
@@ -48,12 +49,8 @@ def main():
                     print("you lose!")
                     break
 
-            elif count_dealer < count_people:
-                print("you win!")
-                break
-            elif count_dealer == count_people:
-                print("you have the same number of points!")
-                break
+        if count_dealer == count_people:
+            print("you have the same number of points!")
 
 
 if __name__ == "__main__":
