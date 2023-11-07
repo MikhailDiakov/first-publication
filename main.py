@@ -15,7 +15,7 @@ def main():
     cards.pop(0)
     while True:
         choice = input("will you take the card again(choice Y/N)? ")
-        if choice == 'Y':
+        if choice == "Y":
             if count_people > 10 and cards[0] == 11:
                 cards[0] = 1
             count_people += cards[0]
@@ -27,7 +27,7 @@ def main():
             elif count_people == 21:
                 print("you win!")
                 break
-        elif choice == 'N':
+        elif choice == "N":
             print(f"you have {count_people} points")
             break
         else:
@@ -48,9 +48,9 @@ def main():
                 elif count_dealer == 21 or count_dealer > count_people:
                     print("you lose!")
                     break
-
-        if count_dealer == count_people:
-            print("you have the same number of points!")
+                elif count_dealer == count_people and count_dealer >= 19:
+                    print("you have the same number of points!")
+                    break
 
 
 if __name__ == "__main__":
